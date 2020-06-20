@@ -1,0 +1,52 @@
+@mixin center-horizontal-vertical {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+// MEDIA QUERIE MANAGER
+
+/*
+0-600px - Cellphone
+600px - 900px - Tablet portrait
+900px - 1200px - Tablet landscape
+1200px - 1800 - Normal style apply
+1800px+ - Big Desktops
+
+if the user changes the default browser font size using px the media querie won't have any adjust so it might break the design. So it's more apropriated to use EM than PX
+1em = 16px
+
+
+$breakpoints argumentsa
+ - phone
+ - tab-port
+ - tab-land
+ - big-desktop
+*/
+
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em){ //600px
+            @content        
+        }   
+    }
+    @if $breakpoint == tab-port {  //900px
+        @media (max-width: 56.25em){
+            @content        
+        }   
+    }
+    @if $breakpoint == tab-land { //1200px
+        @media (max-width: 75em){
+            @content        
+        }   
+    }
+    @if $breakpoint == big-desktop { //1800px
+        @media (min-width: 112.5em){
+            @content        
+        }   
+    }
+    
+}
+

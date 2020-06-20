@@ -1,0 +1,104 @@
+.form{
+    &__group:not(:last-child){
+        margin-bottom: 2rem;
+
+    }
+
+    &__input{
+        background-color: $color-white, .5;
+        border-bottom: 4px solid transparent;
+        border-radius: $border-radius-small;
+        border: none;
+        color: inherit; 
+        display: block;
+        font-family: inherit;
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        width: 80%;
+    
+        transition: all .3s;
+
+        &:focus{
+            border-bottom: 4px solid $color-primary; 
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            outline: none;
+        }
+
+        &:focus:invalid{
+            border-bottom: 4px solid $color-secondary-dark;   
+        }
+        
+        &::-webkit-input-placeholder{
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__input:placeholder-shown + &__label{
+        opacity: 0;
+        visibility: hidden;
+        
+        transform: translateY(-4rem);        
+    }
+
+    &__label{
+        display: block;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        
+        transition: all .3s;
+    }
+
+    &__radio-group{
+        display: inline-block;
+        width: 49%;
+
+        &:first-child{
+            float: left;
+        }
+    }
+
+    &__radio-input{
+        display: none;
+    }
+
+    &__radio-label{
+        cursor: pointer;
+        font-size: $default-font-size;
+        padding-left: 4rem;
+        position: relative;
+    }
+
+    &__radio-button{
+        border-radius: 50%;
+        border: 5px solid $color-primary;
+        display: inline-block;
+        height: 3rem;
+        width: 3rem;
+        
+        position: absolute;
+        left: 0;
+        top: -1rem;
+
+        &::after{
+            content: "";
+            background-color: $color-primary;
+            border-radius: 50%;
+            display: block;
+            height: 1rem;
+            left: 50%;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 1rem;
+            
+            transition: opacity .2s;
+        }
+    }
+
+    &__radio-input:checked + &__radio-label &__radio-button::after{
+        opacity: 1;
+    }
+}
