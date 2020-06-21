@@ -1332,9 +1332,6 @@ body {
   opacity: 0;
   width: 0;
   transition: all 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
-  .navigation__nav {
-    opacity: 0 !important;
-    width: 0 !important; }
 
 .navigation__list {
   position: absolute;
